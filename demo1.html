@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+        my document
+         </title>
+         <style>
+             body {
+                 padding:0;
+                 margin:0;
+                 background-color: darkslateblue;
+                
+             }
+             .eyes{
+                 position:absolute;
+                 top:50%;
+                 width:100%;
+                 transform: translateY(-50px);
+                 text-align:center;
+
+             }
+             .eye{
+                display:inline-block;
+                position:relative;
+                width:  240px;
+                height:120px;
+                border-radius: 50%;
+                margin:40px;
+                background-color: white;
+             }
+             .ball{
+                 background-color:black;
+                 width:40px;
+                 height:40px;
+                 position:absolute;
+                 top:50%;
+                 margin-left:100px;
+                 transform: translate(-50%,-50%); 
+                 border-radius: 50%;
+                 border:15px solid #333;
+
+             }
+         </style>
+    </head>
+    <body>
+<div class="eyes">
+    <div class="eye">
+        <div class="ball"></div>
+    </div>
+    <div class="eye">
+            <div class="ball"></div>
+    </div>
+</div>
+<script>
+    var balls=document.getElementsByClassName("ball");
+    document.onmousemove = function(){
+        var x=event.clientX * 100 / window.innerWidth + "%";
+        var y=event.clientY *  100 / window.innerHeight + "%";
+
+        for(var i=0;i<2;i++){
+            balls[i].style.marginLeft = x;
+            balls[i].style.top = y;
+            balls[i].style.transform = "translate(-"+x+",-"+y+")";
+        }
+       
+    }
+</script>
+    </body>
+</html>
